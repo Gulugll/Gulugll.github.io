@@ -8,7 +8,7 @@
       <link href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
       <url>/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
       
-        <content type="html"><![CDATA[<h1 id="奈奎斯特采样定理"><a href="#奈奎斯特采样定理" class="headerlink" title="奈奎斯特采样定理"></a>奈奎斯特采样定理</h1><p>​想要让采样之后的数字信号完整保留信号中的信息，采样频率<strong>必须大于信号中最高频率的两倍！</strong></p><h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>​从下面这张图中可以看到，如果采样率比信号频率的两倍要低，那么在频域中信号会<strong>混叠</strong>，这个信号就和时域信号中的信号不一样了。</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/1.png" class="" width="1"><p>​<strong>举个例子</strong>，对于一个$sin(x)$的信号，他的周期是$2\pi$,频率就是$\frac{1}{2\pi}$</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E7%AE%97%E6%B3%952.png" class="" title="算法2">]]></content>
+        <content type="html"><![CDATA[<h1 id="奈奎斯特采样定理"><a href="#奈奎斯特采样定理" class="headerlink" title="奈奎斯特采样定理"></a>奈奎斯特采样定理</h1><p>​想要让采样之后的数字信号完整保留信号中的信息，采样频率<strong>必须大于信号中最高频率的两倍！</strong></p><h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>​从下面这张图中可以看到，如果采样率比信号频率的两倍要低，那么在频域中信号会<strong>混叠</strong>，这个信号就和时域信号中的信号不一样了。</p><p>​<strong>举个例子</strong>，对于一个$sin(x)$的信号，他的周期是$2\pi$,频率就是$\frac{1}{2\pi}$</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E7%AE%97%E6%B3%952.png" class="" title="算法2">]]></content>
       
       
       
@@ -17,19 +17,6 @@
             <tag> 压缩感知 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2023/11/24/hello-world/"/>
-      <url>/2023/11/24/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
