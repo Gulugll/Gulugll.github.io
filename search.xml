@@ -8,7 +8,7 @@
       <link href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
       <url>/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
       
-        <content type="html"><![CDATA[<h1 id="奈奎斯特采样定理"><a href="#奈奎斯特采样定理" class="headerlink" title="奈奎斯特采样定理"></a>奈奎斯特采样定理</h1><p>​想要让采样之后的数字信号完整保留信号中的信息，采样频率<strong>必须大于信号中最高频率的两倍！</strong></p><h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>​从下面这张图中可以看到，如果采样率比信号频率的两倍要低，那么在频域中信号会<strong>混叠</strong>，这个信号就和时域信号中的信号不一样了。</p><p>​<strong>举个例子</strong>，对于一个$sin(x)$的信号，他的周期是$2\pi$,频率就是$\frac{1}{2\pi}$</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E7%AE%97%E6%B3%952.png" class="" title="算法2">]]></content>
+        <content type="html"><![CDATA[<h1 id="奈奎斯特采样定理"><a href="#奈奎斯特采样定理" class="headerlink" title="奈奎斯特采样定理"></a>奈奎斯特采样定理</h1><p>​想要让采样之后的数字信号完整保留信号中的信息，采样频率<strong>必须大于信号中最高频率的两倍！</strong></p><h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>​从下面这张图中可以看到，如果采样率比信号频率的两倍要低，那么在频域中信号会<strong>混叠</strong>，这个信号就和时域信号中的信号不一样了。</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/1.png" class="" width="1"><p>​<strong>举个例子</strong>，对于一个$sin(x)$的信号，他的周期是$2\pi$,频率就是$\frac{1}{2\pi}$</p><img src="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E7%AE%97%E6%B3%952.png" class="" title="算法2">]]></content>
       
       
       
