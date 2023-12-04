@@ -4,30 +4,11 @@
   
     
     <entry>
-      <title>常见还原算法</title>
-      <link href="/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/"/>
-      <url>/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<p>​    如果对压缩感知没有概念的同学可以去看看我的上一篇文章：</p><a href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="压缩感知基本概念">压缩感知基本概念</a><p>​    未完待续……</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 压缩感知 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大规模无线传感器网络压缩数据采集</title>
       <link href="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/"/>
       <url>/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<p>​    压缩感知主要应用于图像处理等领域，但是如果我们利用其特性，它在物理网领域也是可以得到较好的运用的，这篇博客主要是讲一种Compressive Data Gathering（CDG）方法在物联网数据收集中的应用。</p><h1 id="采用压缩感知的优势"><a href="#采用压缩感知的优势" class="headerlink" title="采用压缩感知的优势"></a>采用压缩感知的优势</h1><p>​    在物联网传输信息的过程中，我们单独抽出一条链路传输信息的过程来看.</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg1.png" class="" title="cdg1"><p>​    我们可以看到，在数据向Sink节点传输的过程中，单对传输这个过程来说，他的复杂度是$O(n^2)$的，同时，在传输的过程中，整个能量的消耗是不均匀的，越接近Sink节点的子节点能量消耗越大，这对于整个无线传感器网络的效率与维护是不利的，所以我们采用压缩感知算法来优化这一过程。</p><h1 id="如何采用压缩感知算法"><a href="#如何采用压缩感知算法" class="headerlink" title="如何采用压缩感知算法"></a>如何采用压缩感知算法</h1><p>如下图所示：</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg2.png" class="" title="cdg2"><p>​    图a是一个常见的无线传感器网络，可以看到图中的Sink节点有四个子树（用虚线划分），我们取出其中一个子树作为样例来解释如何进行压缩，我们假设对节点$S_i$收集到的数据标记为$x_i$,那么根据压缩感知的理论我们就可以得到这样一个压缩的结果，如果对压缩感知没有概念的同学可以去看看我的上一篇文章：<a href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="压缩感知基本概念">压缩感知基本概念</a></p><script type="math/tex; mode=display">y_i=\sum_{j=1}^N\phi_{ij}x_j</script><p>​    对应到矩阵运算中就是</p><script type="math/tex; mode=display">\begin{Bmatrix}y_1\\y_2\\\vdots\\y_M\end{Bmatrix}=\begin{Bmatrix}\phi_{11} &\phi_{12} &... &\phi_{1N}\\\phi_{21} &\phi_{22} &... &\phi_{2N}\\\vdots &&\vdots\\\phi_{M1} &\phi_{M2} &... &\phi_{MN}\end{Bmatrix}\begin{Bmatrix}x_1\\x_2\\\vdots\\x_M\end{Bmatrix}</script><p>​    于是乎，我们的数据收集就由原来的$O(N^2)$复杂度变为现在的$O(NM)$复杂度，如下图</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg3.png" class="" title="cdg3"><p>​    在上图中我们看到，每个数据点的传输从原来的1，2，3，4…，N个数据到现在的每个都是M个数据，不光降低了复杂度，同时也使得在整个传输过程中能量的均匀分布。</p><h1 id="数据还原"><a href="#数据还原" class="headerlink" title="数据还原"></a>数据还原</h1><p>​    OK，下面就是这篇文章的重中之重了，如何进行数据的还原，毕竟你也不想数据还原以后误差很大吧。</p><h2 id="数据的稀疏化"><a href="#数据的稀疏化" class="headerlink" title="数据的稀疏化"></a>数据的稀疏化</h2><p>​    这个在我上一篇文章中讲过，这里简单复述下。</p><p>​    由于压缩感知只有在对于稀疏信号的情况下才可以完整地还原信号，所以我们的想法就是找到一种变换方式使得在以下公式中我们得到的s是一个稀疏矩阵</p><script type="math/tex; mode=display">x_i=\sum_{j=1}^N\psi_{ij} s_j</script><p>​    而在这篇文章中，作者采用的是离散余弦转换（DCT），但是这种转换只有部分情况才会产生离散情况，具体怎么产生，后面会讲。</p><p>​    当然，还有一个问题就是我们应该怎么确定M的取值呢，这里作者直接给出了一个公式</p><script type="math/tex; mode=display">M\geq c \cdot \mu^2(\Phi ,\Psi)\cdot K\cdot log N</script><p>​    其中</p><script type="math/tex; mode=display">\mu(\Phi, \Psi)=\sqrt{N} \cdot\mathop{\max}_{1\leq i,j\leq N} | \langle \phi_i,\psi_j \rangle |</script><p>​    通过计算我们可以大体得出M在3K~4K左右通常就可以满足我们的还原需求。</p><h2 id="具体的还原算法"><a href="#具体的还原算法" class="headerlink" title="具体的还原算法"></a>具体的还原算法</h2><p>我看了下原文的方法和常见的还原算法差不多，就直接看我整理的这篇吧：<a href="/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/" title="常见还原算法">常见还原算法</a></p><h2 id="异常值的处理"><a href="#异常值的处理" class="headerlink" title="异常值的处理"></a>异常值的处理</h2><p>​    原文的意思是这样的，如下图</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dct4.png" class="" title="dct4"><p>​    左图是正常情况下的信号以及其在DCT变换后的图像，右图是存在两个异常读数（两个圈出来的值）的情况下的DCT变换后的图像，可以看到右图存在异常读入的情况下DCT变换后的值明显是非稀疏，所以作者采用了一些方法来规避掉这种情况。</p><p>​    首先我们将我们的数据分解为两个部分</p><script type="math/tex; mode=display">x=x_0+x_s</script><p>​    其中$x_0$为在某一变换域中的稀疏读数，$x_s$为异常读书的偏差值，由于异常读数是零星的，所以$x_s$在时域上是一个稀疏信号</p><p>​    <strong>其实我觉得作者的这种做法是有点问题的，但是我没有仔细研究过DCT变换或者小波变换，也没法说他这里有啥问题，反正我在仿真的时候在一些情况下没有异常值的时候DCT变换也是会出问题的，这里挖个坑吧，研究下这些变换后看看是怎么个事，说不定就是一篇文章了（</strong></p>]]></content>
+        <content type="html"><![CDATA[<p>​    压缩感知主要应用于图像处理等领域，但是如果我们利用其特性，它在物理网领域也是可以得到较好的运用的，这篇博客主要是讲一种Compressive Data Gathering（CDG）方法在物联网数据收集中的应用。</p><h1 id="采用压缩感知的优势"><a href="#采用压缩感知的优势" class="headerlink" title="采用压缩感知的优势"></a>采用压缩感知的优势</h1><p>​    在物联网传输信息的过程中，我们单独抽出一条链路传输信息的过程来看.</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg1.png" class="" title="cdg1"><p>​    我们可以看到，在数据向Sink节点传输的过程中，单对传输这个过程来说，他的复杂度是$O(n^2)$的，同时，在传输的过程中，整个能量的消耗是不均匀的，越接近Sink节点的子节点能量消耗越大，这对于整个无线传感器网络的效率与维护是不利的，所以我们采用压缩感知算法来优化这一过程。</p><h1 id="如何采用压缩感知算法"><a href="#如何采用压缩感知算法" class="headerlink" title="如何采用压缩感知算法"></a>如何采用压缩感知算法</h1><p>如下图所示：</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg2.png" class="" title="cdg2"><p>​    图a是一个常见的无线传感器网络，可以看到图中的Sink节点有四个子树（用虚线划分），我们取出其中一个子树作为样例来解释如何进行压缩，我们假设对节点$S_i$收集到的数据标记为$x_i$,那么根据压缩感知的理论我们就可以得到这样一个压缩的结果，如果对压缩感知没有概念的同学可以去看看我的上一篇文章：<a href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="压缩感知基本概念">压缩感知基本概念</a></p><script type="math/tex; mode=display">y_i=\sum_{j=1}^N\phi_{ij}x_j</script><p>​    对应到矩阵运算中就是</p><script type="math/tex; mode=display">\begin{Bmatrix}y_1\\y_2\\\vdots\\y_M\end{Bmatrix}=\begin{Bmatrix}\phi_{11} &\phi_{12} &... &\phi_{1N}\\\phi_{21} &\phi_{22} &... &\phi_{2N}\\\vdots &&\vdots\\\phi_{M1} &\phi_{M2} &... &\phi_{MN}\end{Bmatrix}\begin{Bmatrix}x_1\\x_2\\\vdots\\x_M\end{Bmatrix}</script><p>​    于是乎，我们的数据收集就由原来的$O(N^2)$复杂度变为现在的$O(NM)$复杂度，如下图</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/cdg3.png" class="" title="cdg3"><p>​    在上图中我们看到，每个数据点的传输从原来的1，2，3，4…，N个数据到现在的每个都是M个数据，不光降低了复杂度，同时也使得在整个传输过程中能量的均匀分布。</p><h1 id="数据还原"><a href="#数据还原" class="headerlink" title="数据还原"></a>数据还原</h1><p>​    OK，下面就是这篇文章的重中之重了，如何进行数据的还原，毕竟你也不想数据还原以后误差很大吧。</p><h2 id="数据的稀疏化"><a href="#数据的稀疏化" class="headerlink" title="数据的稀疏化"></a>数据的稀疏化</h2><p>​    这个在我上一篇文章中讲过，这里简单复述下。</p><p>​    由于压缩感知只有在对于稀疏信号的情况下才可以完整地还原信号，所以我们的想法就是找到一种变换方式使得在以下公式中我们得到的s是一个稀疏矩阵</p><script type="math/tex; mode=display">x_i=\sum_{j=1}^N\psi_{ij} s_j</script><p>​    而在这篇文章中，作者采用的是离散余弦转换（DCT），但是这种转换只有部分情况才会产生离散情况，具体怎么产生，后面会讲。</p><p>​    当然，还有一个问题就是我们应该怎么确定M的取值呢，这里作者直接给出了一个公式</p><script type="math/tex; mode=display">M\geq c \cdot \mu^2(\Phi ,\Psi)\cdot K\cdot log N</script><p>​    其中</p><script type="math/tex; mode=display">\mu(\Phi, \Psi)=\sqrt{N} \cdot\mathop{\max}_{1\leq i,j\leq N} | \langle \phi_i,\psi_j \rangle |</script><p>​    通过计算我们可以大体得出M在3K~4K左右通常就可以满足我们的还原需求。</p><h2 id="具体的还原算法"><a href="#具体的还原算法" class="headerlink" title="具体的还原算法"></a>具体的还原算法</h2><p>我看了下原文的方法和常见的还原算法差不多，就直接看我整理的这篇吧：<a href="/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/" title="常见还原算法">常见还原算法</a></p><h2 id="异常值的处理"><a href="#异常值的处理" class="headerlink" title="异常值的处理"></a>异常值的处理</h2><p>​    原文的意思是这样的，如下图</p><img src="/2023/12/03/%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8%E7%BD%91%E7%BB%9C%E5%8E%8B%E7%BC%A9%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/dct4.png" class="" title="dct4"><p>​    左图是正常情况下的信号以及其在DCT变换后的图像，右图是存在两个异常读数（两个圈出来的值）的情况下的DCT变换后的图像，可以看到右图存在异常读入的情况下DCT变换后的值明显是非稀疏，所以作者采用了一些方法来规避掉这种情况。</p><p>​    首先我们将我们的数据分解为两个部分</p><script type="math/tex; mode=display">x=x_0+x_s</script><p>​    其中$x_0$为在某一变换域中的稀疏读数，$x_s$为异常读书的偏差值，由于异常读数是零星的，所以$x_s$在时域上是一个稀疏信号</p><p>​    那么根据之前我们得到的性质，我们可以得到：</p><script type="math/tex; mode=display">x=\Psi s_0+I s_s</script><p>​    其中$I$为单位矩阵。这时我们得到的两个向量$s_0,s_s$都是稀疏的，也就是说我们将原信号分解成了两个不同域中的稀疏信号，这时候我们定义一个<strong>完备基</strong>：$\Psi ’ =[\Psi I]$，那么我们的原始信号就可以表示为(其实就是简单的线性代数)：</p><script type="math/tex; mode=display">x=\Psi' s,s=[s_0^T s_s^T]^T</script><p>​    </p><p>​    然后我们就把这个值丢到我们的还原算法里就好啦！</p><p>​    <strong>其实我觉得作者的这种做法是有点问题的，但是我没有仔细研究过DCT变换或者小波变换，也没法说他这里有啥问题，反正我在仿真的时候在一些情况下没有异常值的时候DCT变换也是会出问题的，这里挖个坑吧，研究下这些变换后看看是怎么个事，说不定就是一篇文章了（</strong></p><h1 id="网络容量分析"><a href="#网络容量分析" class="headerlink" title="网络容量分析"></a>网络容量分析</h1><p>​    </p>]]></content>
       
       
       
@@ -36,6 +17,25 @@
             <tag> 压缩感知 </tag>
             
             <tag> 文献阅读 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常见还原算法</title>
+      <link href="/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/"/>
+      <url>/2023/12/03/%E5%B8%B8%E8%A7%81%E8%BF%98%E5%8E%9F%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>​    如果对压缩感知没有概念的同学可以去看看我的上一篇文章：</p><a href="/2023/11/24/%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="压缩感知基本概念">压缩感知基本概念</a><h1 id="基追踪算法"><a href="#基追踪算法" class="headerlink" title="基追踪算法"></a>基追踪算法</h1><p>​    未完待续……</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 压缩感知 </tag>
             
         </tags>
       
